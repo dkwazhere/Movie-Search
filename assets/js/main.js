@@ -3,6 +3,9 @@ $(document).ready(() => {
     let searchText = $("#searchText").val();
     getMovies(searchText);
     e.preventDefault();
+
+    liMaker(input.value);
+    input.value = "";
   });
 });
 
@@ -100,3 +103,17 @@ function getMovie() {
       console.log(err);
     });
 }
+
+// Storage Variables
+const form = document.querySelector("form");
+const ul = document.querySelector("ul");
+const button = document.querySelector("button");
+const input = document.getElementById("searchText");
+
+// Li creator function
+
+const liMaker = text => {
+  const li = document.createElement("li");
+  li.textContent = text;
+  ul.appendChild(li);
+};
